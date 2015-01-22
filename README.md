@@ -1,9 +1,10 @@
 #HyperBloom
-![TravisStatus](https://travis.cogolo.net/alfredo/hyperbloom.svg?token=syLwtMdYbqX9AzBXxKgZ)
+![TravisStatus](https://travis-ci.org/iamthebot/hyperbloom.svg)
+[![godoc complete](http://b.repl.ca/v1/godoc-complete-blue.png)](http://godoc.org/github.com/iamthebot/hyperbloom)
 
-![Bloom](https://git.adverplex.com/alfredo/hyperbloom/raw/master/images/bloom.jpg)
+![Bloom](https://raw.githubusercontent.com/iamthebot/hyperbloom/master/images/bloom.jpg)
 
-A collection of high performance bloom filter data structures for use in Go. They all use the 64 bit version of Google's XXHASH "extremely fast non-cryptographic" hashing algorithm. Detailed documentation is available via [godoc](http://alfredovm.cogolo.net:6060/pkg/git.adverplex.com/alfredo/hyperbloom/).
+A collection of high performance bloom filter data structures for use in Go. They all use the 64 bit version of Google's XXHASH "extremely fast non-cryptographic" hashing algorithm. Detailed documentation is available via [godoc](http://godoc.org/github.com/iamthebot/hyperbloom).
 
 ##BloomFilter
 A textbook implementation of a bloom filter. Like StripedBloomFilter, it uses an array of unsigned 64 bit integers. However, it uses centralized locking (via a RWMutex) in place of sharded locking. In addition, it supports non-locking inserts and lookups (InsertAsync) and (LookupAsync). Use if you plan on doing mostly reads and not many writes OR if you plan on using the bloomfilter in a single-threaded scenario (make sure to use InsertAsync and LookupAsync to bypass the mutex in this case)
