@@ -1,5 +1,5 @@
 #HyperBloom
-![TravisStatus](https://travis-ci.org/iamthebot/hyperbloom.svg)
+[![Build Status](https://travis-ci.org/iamthebot/hyperbloom.svg?branch=master)](https://travis-ci.org/iamthebot/hyperbloom)
 [![godoc complete](http://b.repl.ca/v1/godoc-complete-blue.png)](http://godoc.org/github.com/iamthebot/hyperbloom)
 
 ![Bloom](https://raw.githubusercontent.com/iamthebot/hyperbloom/master/images/bloom.jpg)
