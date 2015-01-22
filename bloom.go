@@ -51,7 +51,7 @@ func (bf BloomFilter) setBit(idx uint64) error {
 		return errors.New("Index can't be larger than filter size")
 	}
 	intID := idx / 64
-	bitID := idx % 64
+	bitID := idx & 63
 	bf.mut.Lock()
 	bf.bv[intID] |= (1 << bitID)
 	bf.mut.Unlock()
@@ -63,7 +63,7 @@ func (bf BloomFilter) setBitAsync(idx uint64) error {
 		return errors.New("Index can't be larger than filter size")
 	}
 	intID := idx / 64
-	bitID := idx % 64
+	bitID := idx & 63
 	bf.bv[intID] |= (1 << bitID)
 	return nil
 }
@@ -74,7 +74,7 @@ func (bf BloomFilter) getBit(idx uint64) (bool, error) {
 	}
 
 	intID := idx / 64
-	bitID := idx % 64
+	bitID := idx & 63
 	bf.mut.RLock()
 	exists := !(bf.bv[intID]&(1<<bitID) == 0)
 	bf.mut.RUnlock()
@@ -86,7 +86,7 @@ func (bf BloomFilter) getBitAsync(idx uint64) (bool, error) {
 		return false, errors.New("Index can't be larger than filter size")
 	}
 	intID := idx / 64
-	bitID := idx % 64
+	bitID := idx & 63
 	exists := !(bf.bv[intID]&(1<<bitID) == 0)
 	return exists, nil
 }
