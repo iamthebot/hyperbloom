@@ -4,8 +4,8 @@ go:
     - 1.4
 
 install:
-    go get github.com/oneofone/xxhash/native
-    go get github.com/stretchr/testify
+    - go get github.com/oneofone/xxhash/native
+    - go get github.com/stretchr/testify
 
 script:
-    go test -v
+    - go test -v
