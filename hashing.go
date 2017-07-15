@@ -1,7 +1,7 @@
 package hyperbloom
 
 import (
-	XXHN "github.com/oneofone/xxhash/native"
+	XXHN "github.com/OneOfOne/xxhash"
 )
 
 func hashEntry(entry []byte, n int) []uint64 {
